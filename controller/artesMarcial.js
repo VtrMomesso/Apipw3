@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 /* IMPORT DA MODEL DE CATEGORIA */
-const artesMarcial = require('../model/artesMarcial');
+const modelMarcial = require('../model/artesMarcialModel');
 
 /* PARAMETROS DE ROTAS (QUALQUER VERBO):
 1 - NOME DA ROTA - REPRESENTADO POR UMA STRING
@@ -18,7 +18,7 @@ router.get('/', (req, res)=>{
     // res.send('----TESTE DE ROTA GET DE CATEGORIAS----');
 
     //LISTANDO OS DADOS SEM CRITÉRIOS
-    artesMarcial.findAll()
+    modelMarciall.findAll()
         .then(
             (artesMarcial)=>{
                 return res.status(200).json(artesMarcial);
@@ -39,11 +39,10 @@ router.get('/', (req, res)=>{
 router.get('/listaArtesMarcial/:id',(req, res)=>{
 
     let {id} = req.params;
-
-    artesMarcial.findByPk(id)
+    modelMarcial.findByPk(id)
         .then(
-            (artesMarcial)=>{
-                res.status(200).json(artesMarcial);
+            (estiloMarcial)=>{
+                res.status(200).json(estiloMarcial);
             }
         ).catch(
             (erro)=>{
@@ -58,18 +57,16 @@ router.get('/listaArtesMarcial/:id',(req, res)=>{
 });
 
 router.post('/inserirArtesMarcial', (req, res)=>{
-    // console.log('A REQUISIÇÃO POST PASSOU PELA CATEGORIA CONTROLLER');
-    // res.send('TESTE DE ROTA POST DE CATEGORIAS');
 
-    //RECEBER OS DADOS
-    // console.log(req.body.nome_categoria);
-    // let nome_categoria = req.body.nome_categoria;
-    let {artesMarcial} = req.body;
-    // console.log(nome_categoria);
+    let {estiloMarcial, descricao, foto} = req.body;
     
     //GRAVAR OS DADOS
-    modelCategoria.create(
-        {artesMarcial}
+    modelMarcial.create(
+        {
+            estiloMarcial, 
+            descricao, 
+            foto
+        }
     ).then(
         ()=>{
                 return res.status(201).json({
@@ -91,15 +88,11 @@ router.post('/inserirArtesMarcial', (req, res)=>{
 
 router.put('/alterarArtesMarcial', (req, res)=>{
 
-    // console.log('A REQUISIÇÃO PUT PASSOU PELA CATEGORIA CONTROLLER');
-    // res.send('TESTE DE ROTA PUT DE CATEGORIAS');
+    let {id, estiloMarcial, descricao, foto} = req.body;
 
-    //RECEBENDO OS DADOS:
-    let {id, artesMarcial} = req.body;
 
-    //ALTERANDO OS DADOS:
-    modelCategoria.update(
-        {artesMarcial},
+    modelMarcial.update(
+        {estiloMarcial, descricao, foto},
         {where:{id}}
     ).then( ()=>{
 
@@ -127,7 +120,7 @@ router.delete('/excluirArtesMarcial/:id', (req, res)=>{
 
     let {id} = req.params;
 
-    modelCategoria.destroy(
+    modelMarcial.destroy(
         {where: {id}}
     ).then( ()=>{
 

@@ -13,19 +13,19 @@ PARAMETROS:
 */
 const artesMarcial = connection.define("tbl_artesMarcial", {
   estiloMarcial: {
-    type: Sequelize.VARCHAR(45),
-    allowNull: false,
+    type: Sequelize.STRING(45),
+    allowNull: false
   },
   descricao: {
-    type: Sequelize.LONGTEXT,
-    allowNull: false,
+    type: Sequelize.STRING(150),
+    allowNull: false
   },
   foto: {
-    type: Sequelize.VARCHAR(90),
-    allowNull: false,
+    type: Sequelize.STRING(90),
+    allowNull: false
   },
 });
 
-// Categoria.sync({force:true});
+// artesMarcial.sync({force:true});
 
 module.exports = artesMarcial;
