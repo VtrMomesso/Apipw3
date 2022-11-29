@@ -11,7 +11,7 @@ PARAMETROS:
 1 - NOME DA TABELA  E SEUS CAMPOS
 2 - JSON: REPRESENTA O CAMPO OU CAMPOS DA TABELA, SEUS TIPOS E SUAS  REGRAS.
 */
-const artesMarcial = connection.define("tbl_artesMarcial", {
+const artesMarcial = connection.define("artesMarcial", {
   estiloMarcial: {
     type: Sequelize.STRING(45),
     allowNull: false
@@ -26,6 +26,6 @@ const artesMarcial = connection.define("tbl_artesMarcial", {
   },
 });
 
-// artesMarcial.sync({force:true});
+//artesMarcial.sync({force:true});
 
 module.exports = artesMarcial;

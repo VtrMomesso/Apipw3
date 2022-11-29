@@ -17,7 +17,9 @@
   "author": "Victor dos Santos",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1",
+    "axios": "^1.1.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
     "sequelize": "^6.23.2"

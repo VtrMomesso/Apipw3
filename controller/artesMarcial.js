@@ -18,7 +18,7 @@ router.get('/', (req, res)=>{
     // res.send('----TESTE DE ROTA GET DE CATEGORIAS----');
 
     //LISTANDO OS DADOS SEM CRITÉRIOS
-    modelMarciall.findAll()
+    modelMarcial.findAll()
         .then(
             (artesMarcial)=>{
                 return res.status(200).json(artesMarcial);
