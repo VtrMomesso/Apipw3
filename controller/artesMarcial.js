@@ -11,7 +11,7 @@ const modelMarcial = require('../model/artesMarcialModel');
 2 - CALLBACK QUE TRATA REQUISIÇÃO (req) E RESPOSTA (res)
 */
 /*ROTAS DE CRUD DE ARTES MARCIAL:*/
-router.get('/', (req, res)=>{
+router.get('/listarArtes', (req, res)=>{
 
     // console.log('TESTE DE ROTA GET DE ARTES MARCIAL');
     // console.log('----A REQUISIÇÃO GET PASSOU PELA ARTES MARCIAL CONTROLLER----');
@@ -58,6 +58,7 @@ router.get('/listaArtesMarcial/:id',(req, res)=>{
 
 router.post('/inserirArtesMarcial', (req, res)=>{
 
+    console.log(req.body);
     let {estiloMarcial, descricao, foto} = req.body;
     
     //GRAVAR OS DADOS
