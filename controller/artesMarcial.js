@@ -71,14 +71,14 @@ router.post('/inserirArtesMarcial', (req, res)=>{
     ).then(
         ()=>{
                 return res.status(201).json({
-                    erroStatus: false,
+                    //erroStatus: false,
                     menssagemStatus: 'Artes Marcial inserida com sucesso!'
             });
         }
     ).catch(
         (erro)=>{
                     return res.status(400).json({
-                        erroStatus: true,
+                       // erroStatus: true,
                         erroMessagem: 'Houve um erro ao cadastrar a Artes Marcial desejada',
                         erroBancoDados: erro
                     });
@@ -99,7 +99,7 @@ router.put('/alterarArtesMarcial', (req, res)=>{
 
         return res.status(200).json({
             erroStatus: false,
-            menssagemStatus: 'Categoria alterada com sucesso!'
+            menssagemStatus: 'Estilo Marcial alterado com sucesso!'
         });
 
     }).catch(
